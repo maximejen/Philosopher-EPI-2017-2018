@@ -2,7 +2,7 @@
 ## EPITECH PROJECT, 2018
 ## Makefile
 ## File description:
-## nm
+## philo
 ##
 
 CC 	=	gcc
@@ -17,10 +17,12 @@ OBJ 	=	$(SRC:.c=.o)
 
 CFLAGS 	=	-I include -W -Wall -Wextra
 
+LDFLAGS	=	-L. -lriceferee -lpthread
+
 all: $(NAME)
 
 $(NAME): $(OBJ)
-	$(CC) $(OBJ) -o $(NAME)
+	$(CC) $(OBJ) -o $(NAME) $(LDFLAGS)
 
 clean:
 	$(RM) $(OBJ)
