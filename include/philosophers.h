@@ -8,6 +8,8 @@
 #ifndef PHILISOPHERS_H_
 	#define PHILISOPHERS_H_
 
+#include <pthread.h>
+
 typedef struct args_s {
 	int nbr_p;
 	int nbr_e;
