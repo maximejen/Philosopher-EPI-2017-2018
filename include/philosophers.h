@@ -5,12 +5,37 @@
 ** philisophers.h
 */
 
-#ifndef PHILOSOPHERS_PHILISOPHERS_H_
-	#define PHILOSOPHERS_PHILISOPHERS_H_
+#ifndef PHILISOPHERS_H_
+	#define PHILISOPHERS_H_
 
 typedef struct args_s {
 	int nbr_p;
 	int nbr_e;
 } args_t;
 
-#endif //PHILOSOPHERS_PHILISOPHERS_H_
+enum action_e {
+	EAT,
+	THINK,
+	REST
+};
+
+typedef struct philo_s philo_t;
+
+typedef struct {
+	pthread_mutex_t *mutex;
+	philo_t *owner;
+	philo_t *who;
+} chops_t;
+
+struct philo_s {
+	int id;
+	pthread_t *thread;
+	chops_t *own;
+	chops_t *right;
+	int dish_counter;
+	int max_dish;
+	int hungry;
+	int sleepy;
+};
+
+#endif //PHILISOPHERS_H_
