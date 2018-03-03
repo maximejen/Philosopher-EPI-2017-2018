@@ -7,7 +7,7 @@
 
 #include <stdlib.h>
 #include <pthread.h>
-#include "philosophers.h"
+#include "include/philosophers.h"
 
 chops_t *new_chopstick()
 {

@@ -40,4 +40,17 @@ struct philo_s {
 	int sleepy;
 };
 
+/*
+** Chopstick functions
+*/
+void destroy_chopstick(chops_t *cs);
+chops_t **create_chopsticks(int quantity);
+chops_t *new_chopstick();
+
+/*
+** Philosophers functions
+*/
+philo_t *init_philo(int id, int max_dish, chops_t **chopsticks);
+void destroy_philo(philo_t *philo);
+
 #endif //PHILISOPHERS_H_
