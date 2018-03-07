@@ -54,8 +54,8 @@ int main(int argc, char **argv)
 		printf("number of times they can eat : %d\n", args.nbr_e);
 		return (ret);
 	}
-	if (strcmp(argv[1], FLAGS[2]) == 0 ||
-	    strcmp(argv[1], FLAGS[3]) == 0) {
+	if (argc >= 2 && (strcmp(argv[1], FLAGS[2]) == 0 ||
+	    strcmp(argv[1], FLAGS[3]) == 0)) {
 		printf("%s\n", HELP_MESSAGE);
 		return (0);
 	}
