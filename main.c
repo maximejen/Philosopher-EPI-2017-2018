@@ -67,8 +67,6 @@ int main(int argc, char **argv)
 
 	if (argc >= 5) {
 		ret = parse_args(argc, argv, &args);
-		printf("number of philosophers       : %d\n", args.nbr_p);
-		printf("number of times they can eat : %d\n", args.nbr_e);
 		if (!ret)
 			ret = dinner(&args);
 		return (ret);

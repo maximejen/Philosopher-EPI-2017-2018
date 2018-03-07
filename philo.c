@@ -13,7 +13,9 @@
 
 static void *philo_action_against_starvation(void *arg)
 {
-	printf("hello\n");
+	philo_t *philo = (philo_t*)arg;
+
+	printf("Philo nbr %d says hello.\n", philo->id);
 	return ("ok");
 }
 
