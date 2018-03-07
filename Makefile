@@ -5,9 +5,9 @@
 ## philo
 ##
 
-CC 	=	gcc
+CC	=	gcc
 
-RM 	=	rm -f
+RM	=	rm -f
 
 NAME	=	philo
 
@@ -15,9 +15,9 @@ SRC	=	main.c		\
 		philo.c		\
 		chopstick.c
 
-OBJ 	=	$(SRC:.c=.o)
+OBJ	=	$(SRC:.c=.o)
 
-CFLAGS 	=	-I include -W -Wall -Wextra
+CFLAGS	=	-I include -W -Wall -Wextra -g
 
 LDFLAGS	=	-L. -lriceferee -lpthread
 

@@ -9,6 +9,7 @@
 	#define PHILISOPHERS_H_
 
 #include <pthread.h>
+#include <stdbool.h>
 
 typedef struct args_s {
 	int nbr_p;
@@ -31,7 +32,7 @@ typedef struct {
 
 struct philo_s {
 	int id;
-	pthread_t *thread;
+	pthread_t thread;
 	chops_t *own;
 	chops_t *right;
 	int dish_counter;

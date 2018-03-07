@@ -43,6 +43,23 @@ static int parse_args(int argc, char **argv, args_t *args)
 	return (0);
 }
 
+static int dinner(args_t *args)
+{
+	chops_t **chops = create_chopsticks(args->nbr_p);
+	philo_t *philos[args->nbr_p];
+
+	if (!chops)
+		return (84);
+	for (int i = 0; i < args->nbr_p; i++)
+		philos[i] = init_philo(i, args->nbr_e, chops);
+	for (int i = 0; i < args->nbr_p; i++)
+		destroy_philo(philos[i]);
+	for (int i = 0; chops[i]; i++)
+		destroy_chopstick(chops[i]);
+	free(chops);
+	return (0);
+}
+
 int main(int argc, char **argv)
 {
 	args_t args = {-1, -1};
@@ -52,6 +69,8 @@ int main(int argc, char **argv)
 		ret = parse_args(argc, argv, &args);
 		printf("number of philosophers       : %d\n", args.nbr_p);
 		printf("number of times they can eat : %d\n", args.nbr_e);
+		if (!ret)
+			ret = dinner(&args);
 		return (ret);
 	}
 	if (argc >= 2 && (strcmp(argv[1], FLAGS[2]) == 0 ||

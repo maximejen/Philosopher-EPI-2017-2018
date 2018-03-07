@@ -7,7 +7,7 @@
 
 #include <stdlib.h>
 #include <pthread.h>
-#include "include/philosophers.h"
+#include "philosophers.h"
 
 chops_t *new_chopstick()
 {
@@ -44,5 +44,20 @@ chops_t **create_chopsticks(int quantity)
 		if (ret[i] == NULL)
 			return (NULL);
 	}
+	ret[quantity] = NULL;
 	return (ret);
+}
+
+void take(philo_t *philo, chops_t *chop)
+{
+	if (chop->who != philo) {
+		pthread_mutex_lock(chop->mutex);
+		chop->who = philo;
+	}
+}
+
+void liberate(chops_t *chop)
+{
+	chop->who = NULL;
+	pthread_mutex_unlock(chop->mutex);
 }
