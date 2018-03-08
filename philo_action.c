@@ -40,11 +40,11 @@ void *philo_action_against_starvation(void *arg)
 	philo_t *philo = (philo_t*)arg;
 
 	while (philo->dish_counter < philo->max_dish) {
-		usleep(WAIT_TIME * philo->id);
+		usleep(WAIT_TIME * philo->id / 10);
 		philo_think(philo);
-		usleep(WAIT_TIME * philo->id);
+		usleep(WAIT_TIME * philo->id / 10);
 		philo_eat(philo);
-		usleep(WAIT_TIME * philo->id);
+		usleep(WAIT_TIME * philo->id / 10);
 		philo_sleep();
 	}
 	return ("ok");
