@@ -8,7 +8,8 @@
 #include <string.h>
 #include <stdlib.h>
 #include <stdio.h>
-#include "include/philosophers.h"
+#include "philosophers.h"
+#include "extern.h"
 
 static const char FLAGS[4][7] = {
 "-p",
@@ -38,7 +39,7 @@ static int parse_args(int argc, char **argv, args_t *args)
 			args->nbr_e = atoi(argv[i]);
 		}
 	}
-	if (args->nbr_e == -1 || args->nbr_p == -1)
+	if (args->nbr_e < 1 || args->nbr_p < 2)
 		return (84);
 	return (0);
 }
@@ -65,6 +66,7 @@ int main(int argc, char **argv)
 	args_t args = {-1, -1};
 	int ret = 84;
 
+	RCFStartup(argc, argv);
 	if (argc >= 5) {
 		ret = parse_args(argc, argv, &args);
 		if (!ret)
@@ -76,5 +78,6 @@ int main(int argc, char **argv)
 		printf("%s\n", HELP_MESSAGE);
 		return (0);
 	}
+	RCFCleanup();
 	return (ret);
 }

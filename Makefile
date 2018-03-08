@@ -12,14 +12,15 @@ RM	=	rm -f
 NAME	=	philo
 
 SRC	=	main.c		\
+		philo_action.c	\
 		philo.c		\
 		chopstick.c
 
 OBJ	=	$(SRC:.c=.o)
 
-CFLAGS	=	-I include -W -Wall -Wextra -g
+CFLAGS	=	-I include -W -Wall -Wextra
 
-LDFLAGS	=	-L. -lriceferee -lpthread
+LDFLAGS	=	-L. -lriceferee -lpthread -Wl,-rpath=. -rdynamic
 
 all: $(NAME)
 

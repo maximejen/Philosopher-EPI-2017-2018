@@ -11,14 +11,6 @@
 #include <string.h>
 #include "include/philosophers.h"
 
-static void *philo_action_against_starvation(void *arg)
-{
-	philo_t *philo = (philo_t*)arg;
-
-	printf("Philo nbr %d says hello.\n", philo->id);
-	return ("ok");
-}
-
 philo_t *init_philo(int id, int max_dish, chops_t **chopsticks)
 {
 	philo_t *philo = malloc(sizeof(philo_t));
@@ -46,6 +38,8 @@ void destroy_philo(philo_t *philo)
 	void *status;
 
 	if (pthread_join(philo->thread, &status))
-		printf("pthread_join Error.\n"), exit(84);
+		dprintf(2, "pthread_join Error.\n"), exit(84);
+	else
+		dprintf(2, "Philo %d finished.\n", philo->id);
 	free(philo);
 }
