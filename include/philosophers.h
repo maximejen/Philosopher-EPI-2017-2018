@@ -10,10 +10,10 @@
 
 	#include <pthread.h>
 	#include <stdbool.h>
-	#define EAT_TIME	50000
-	#define SLEEP_TIME	50000
-	#define THINK_TIME	50000
-	#define WAIT_TIME	10000
+	#define EAT_TIME	1000
+	#define SLEEP_TIME	1000
+	#define THINK_TIME	1000
+	#define WAIT_TIME	1000
 
 typedef struct args_s {
 	int nbr_p;

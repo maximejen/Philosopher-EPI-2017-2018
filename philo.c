@@ -39,7 +39,5 @@ void destroy_philo(philo_t *philo)
 
 	if (pthread_join(philo->thread, &status))
 		dprintf(2, "pthread_join Error.\n"), exit(84);
-	else
-		dprintf(2, "Philo %d finished.\n", philo->id);
 	free(philo);
 }
