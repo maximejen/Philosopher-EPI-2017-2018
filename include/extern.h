@@ -1,7 +1,14 @@
-#ifndef __LIBRICEFEREE_EXTERN__
-# define __LIBRICEFEREE_EXTERN__
+/*
+** EPITECH PROJECT, 2018
+** Philosophers
+** File description:
+** extern.h
+*/
 
-#include <pthread.h>
+#ifndef __LIBRICEFEREE_EXTERN__
+	#define __LIBRICEFEREE_EXTERN__
+
+	#include <pthread.h>
 
 /*
  * You MUST use this library at linking and runtime

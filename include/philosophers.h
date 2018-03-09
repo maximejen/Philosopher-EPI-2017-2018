@@ -2,7 +2,7 @@
 ** EPITECH PROJECT, 2018
 ** Philosophers
 ** File description:
-** philisophers.h
+** philosophers.h
 */
 
 #ifndef PHILISOPHERS_H_

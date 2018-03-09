@@ -13,6 +13,7 @@ NAME	=	philo
 
 SRC	=	main.c		\
 		philo_action.c	\
+		manipulate.c	\
 		philo.c		\
 		chopstick.c
 

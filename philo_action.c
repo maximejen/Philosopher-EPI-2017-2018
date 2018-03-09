@@ -29,7 +29,7 @@ static void philo_think(philo_t *philo)
 	liberate(philo->own);
 }
 
-static void philo_sleep()
+static void philo_sleep(void)
 {
 	lphilo_sleep();
 	usleep(SLEEP_TIME);
