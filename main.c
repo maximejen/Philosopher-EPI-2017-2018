@@ -71,6 +71,7 @@ int main(int argc, char **argv)
 		ret = parse_args(argc, argv, &args);
 		if (!ret)
 			ret = dinner(&args);
+		RCFCleanup();
 		return (ret);
 	}
 	if (argc >= 2 && (strcmp(argv[1], FLAGS[2]) == 0 ||

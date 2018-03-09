@@ -13,7 +13,7 @@
 bool take(philo_t *philo, chops_t *chop)
 {
 	if (chop->who == philo ||
-		(chop->who != philo && pthread_mutex_trylock(chop->mutex))) {
+		(chop->who != philo && !pthread_mutex_trylock(chop->mutex))) {
 		chop->who = philo;
 		lphilo_take_chopstick(chop->mutex);
 		return (true);

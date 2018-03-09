@@ -22,7 +22,7 @@ static void philo_eat(philo_t *philo)
 
 static void philo_think(philo_t *philo)
 {
-	while (!take(philo, philo->right) && !take(philo, philo->right));
+	while (!take(philo, philo->own) && !take(philo, philo->right));
 	lphilo_think();
 	usleep(THINK_TIME);
 	liberate(philo->right);
@@ -41,11 +41,11 @@ void *philo_action_against_starvation(void *arg)
 
 	while (philo->dish_counter < philo->max_dish) {
 		usleep(WAIT_TIME * philo->id / 10);
+		philo_sleep();
+		usleep(WAIT_TIME * philo->id / 10);
 		philo_think(philo);
 		usleep(WAIT_TIME * philo->id / 10);
 		philo_eat(philo);
-		usleep(WAIT_TIME * philo->id / 10);
-		philo_sleep();
 	}
 	return ("ok");
 }

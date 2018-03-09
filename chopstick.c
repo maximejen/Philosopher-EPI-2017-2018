@@ -12,6 +12,7 @@
 chops_t *new_chopstick(void)
 {
 	chops_t *ret = malloc(sizeof(chops_t));
+	pthread_mutexattr_t attr;
 
 	if (ret == NULL)
 		return (NULL);
@@ -22,7 +23,10 @@ chops_t *new_chopstick(void)
 		free(ret);
 		return (NULL);
 	}
-	pthread_mutex_init(ret->mutex, NULL);
+	pthread_mutexattr_init(&attr);
+	pthread_mutexattr_settype(&attr, PTHREAD_MUTEX_ERRORCHECK);
+	pthread_mutex_init(ret->mutex, &attr);
+	pthread_mutexattr_destroy(&attr);
 	return (ret);
 }
 
