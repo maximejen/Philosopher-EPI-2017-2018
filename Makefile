@@ -21,7 +21,7 @@ OBJ	=	$(SRC:.c=.o)
 
 CFLAGS	=	-I include -W -Wall -Wextra
 
-LDFLAGS	=	-L. -lriceferee -lpthread -Wl,-rpath=. -rdynamic
+LDFLAGS	=	-L. -lriceferee -pthread
 
 all: $(NAME)
 
