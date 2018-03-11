@@ -36,4 +36,14 @@ fclean: clean
 
 re: fclean all
 
-.PHONY: all clean fclean re
+tests_run:
+	make -C ./tests/
+	LD_LIBRARY_PATH=. ./tests/tester
+
+clean_test:
+	make clean -C ./tests/
+
+fclean_test:
+	make fclean -C ./tests/
+
+.PHONY: all clean fclean re clean_test fclean_test tests_run
